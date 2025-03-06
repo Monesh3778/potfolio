@@ -1,0 +1,111 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.mi
+ n.css"> 
+    <link rel="stylesheet" href="style.css"> 
+    <title>Portfolio Website</title> 
+    <style> 
+        html { 
+            scroll-behavior: smooth; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <header> 
+        <a href="#home" class="logo">MONESH</a> 
+        <button class="menu-btn" onclick="toggleMenu()">☰</button> 
+ 
+        <nav id="nav"> 
+            <a href="#home" class="active"> Home</a> 
+            <a href="#skills">Skills</a> 
+            <a href="#education">Education</a> 
+            <a href="#contact">Contact</a> 
+        </nav> 
+    </header> 
+    
+    <section class="home" id="home"> 
+        <div class="home-img"> 
+            <img src="m.jpg" alt="Profile Picture"> 
+        </div> 
+        <div class="home-content"> 
+            <h1>Hi, It's <span>Monesh</span></h1> 
+            <h3 class="typing-text">I'm a <span id="typing"></span></h3> 
+            <p>I am currently pursuing my 3rd year in Mechanical 
+Engineering, passionate about machines, automation, and design.</p> 
+            <div class="social-icons"> 
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a> 
+                <a href="#"><i class="fa-brands fa-github"></i></a> 
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a> 
+                <a href="#"><i class="fa-brands fa-instagram"></i></a> 
+            </div> 
+            <a href="#contact" class="btn">Hire me</a> 
+        </div> 
+    </section> 
+    
+    <section id="skills"> 
+        <h2>Skills</h2> 
+        <ul> 
+            <li>CAD Design (SolidWorks, AutoCAD)</li> 
+            <li>Thermodynamics & Fluid Mechanics</li> 
+            <li>Manufacturing Processes</li> 
+            <li>Finite Element Analysis (FEA)</li> 
+            <li>Robotics & Automation</li> 
+        </ul> 
+    </section> 
+    
+    <section id="education"> 
+        <h2>Education</h2> 
+        <p>Bachelor of Engineering in Mechanical Engineering</p> 
+    </section> 
+    
+    <section id="contact"> 
+        <h2>Contact Me</h2> 
+        <p>Email:monesh.3.3@protosem.tech</p> 
+        <p>Phone:+91 75581 40276</p> 
+        <p>Location: Tamilnadu, India</p> 
+    </section> 
+    
+    <script> 
+        function toggleMenu() { 
+            document.getElementById("nav").classList.toggle("active"); 
+        } 
+        
+        const typingText = ["Mechanical Engineer", "CAD Designer", 
+"Automation Enthusiast"]; 
+        let typingIndex = 0; 
+        let charIndex = 0; 
+        let typingElement = document.getElementById("typing"); 
+        
+        function typeEffect() { 
+            if (charIndex < typingText[typingIndex].length) { 
+                typingElement.innerHTML += 
+typingText[typingIndex].charAt(charIndex); 
+                charIndex++; 
+                setTimeout(typeEffect, 100); 
+            } else { 
+                setTimeout(eraseEffect, 1500); 
+            } 
+        } 
+        
+        function eraseEffect() { 
+            if (charIndex > 0) { 
+                typingElement.innerHTML = 
+typingText[typingIndex].substring(0, charIndex - 1); 
+                charIndex--; 
+                setTimeout(eraseEffect, 50); 
+            } else { 
+                typingIndex = (typingIndex + 1) % typingText.length; 
+                setTimeout(typeEffect, 500); 
+            } 
+        } 
+        
+        document.addEventListener("DOMContentLoaded", function() { 
+            setTimeout(typeEffect, 500); 
+        }); 
+    </script> 
+</body> 
+</html>
